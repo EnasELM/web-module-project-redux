@@ -4,7 +4,7 @@ import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 import { connect } from 'react-redux';
 const MovieList = (props)=> {
-    const movies = [];
+    const {movies} = props.movies;
 
     return (
         <div className="col">
@@ -21,7 +21,7 @@ const MovieList = (props)=> {
 
                 <tbody>
                     {
-                       props.movies.map(movie=><MovieListItem key={movie.id} movie={movie}/>)
+                       movies.map(movie=><MovieListItem key={movie.id} movie={movie}/>)
                     }
                 </tbody>
             </table>
