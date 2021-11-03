@@ -8,8 +8,8 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const movies = [];
-    const movie = movies.find(movie=>movie.id===Number(id));
+    //const movies = [];
+    const movie = props.movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
         <div className="modal-dialog">
@@ -41,7 +41,7 @@ const Movie = (props) => {
                         
                         <section>
                             <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                            <span className="delete"><input onClick={props.deleteMovie} type="button" className="m-2 btn btn-danger" value="Delete"/></span>
                         </section>
                     </div>
                 </div>
@@ -49,10 +49,10 @@ const Movie = (props) => {
         </div>
     </div>);
 }
-// const mapStateToProps=(state)=> {
-//     return{
-//         movies:[]
-//     }
-// }
+const mapStateToProps=(state)=> {
+    return{
+        movies:[]
+    }
+}
 
-export default connect ({deleteMovie})(Movie);
+export default connect (mapStateToProps,{deleteMovie})(Movie);

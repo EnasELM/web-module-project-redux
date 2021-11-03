@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addMovie } from '../actions/movieActions';
 const MovieHeader = (props) => {
     // const appTitle = "";
     // const displayFavorites = true;
@@ -24,5 +25,5 @@ const mapStateToProps=(state)=> {
         displayFavorites:true
     }
 }
-export default connect(mapStateToProps) (MovieHeader);
+export default connect(mapStateToProps,{addMovie}) (MovieHeader);
 
